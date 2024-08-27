@@ -1,0 +1,2 @@
+- [How To Run .Exe Files On ANY Chromebook](https://www.youtube.com/watch?v=GJL85kQWxog)
+- [How To Install/Run Virtual Machines On A Chromebook](https://www.youtube.com/watch?v=1b4c6D7OTH0)
