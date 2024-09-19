@@ -1,6 +1,29 @@
 
 # Enable Google OAuth Scopes on Cloud Composer
 
+Cloud Composer 2 does not support OAuth scopes as it relies on Google Kubernetes Engine Autopilot. The product team does not have plans to support them as they are considered to be legacy node API access management by Google Kubernetes Engine. To specify scope, do this:
+
+```python
+from google.cloud import bigquery
+import google.auth
+ 
+# Create credentials with Drive & BigQuery API scopes.
+# Both APIs must be enabled for your project before running this code.
+credentials, project = google.auth.default(
+    scopes=[
+        "https://www.googleapis.com/auth/drive",
+        "https://www.googleapis.com/auth/bigquery",
+    ]
+)
+ 
+# Construct a BigQuery client object.
+client = bigquery.Client(credentials=credentials, project=project)
+```
+
+Ref: https://cloud.google.com/knowledge/kb/composer-2-having-no-option-to-set-oauth-scope-000004223#solution
+
+Alternatively, use an Airflow connection.
+
 Ref: https://stackoverflow.com/questions/69817236/enable-google-drive-oauth-scopes-on-cloud-composer-2-0
 
 
